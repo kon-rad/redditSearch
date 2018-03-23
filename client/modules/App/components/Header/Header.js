@@ -12,14 +12,18 @@ export function Header(props, context) {
 
   return (
     <div className={styles.header}>
-      <div className={styles['language-switcher']}>
+    <h1>hi this is header</h1>
+      {/* <div className={styles['language-switcher']}>
         <ul>
+    <h1>hi this is header</h1>
           <li><FormattedMessage id="switchLanguage" /></li>
           {languageNodes}
         </ul>
       </div>
       <div className={styles.content}>
         <h1 className={styles['site-title']}>
+    <h1>hi this is header</h1>
+        
           <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
         </h1>
         {
@@ -27,7 +31,7 @@ export function Header(props, context) {
             ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><FormattedMessage id="addPost" /></a>
             : null
         }
-      </div>
+      </div> */}
     </div>
   );
 }
