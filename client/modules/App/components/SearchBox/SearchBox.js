@@ -16,7 +16,7 @@ class SearchBox extends Component {
   render() {
     return (
       <div className={styles.search_container}>
-        <form className={styles.search_form} action method="POST">
+        <form id="searchForm" className={styles.search_form} action="/api/search" method="POST">
           <input className={styles.search_input} placeholder="search all of reddit" name="search_query" type="text" />
           <input className={styles.search_button} type="submit" value="submit" />
         </form>

@@ -40,6 +40,7 @@ import posts from './routes/post.routes';
 import dummyData from './dummyData';
 import serverConfig from './config';
 
+
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
 
@@ -60,6 +61,14 @@ app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', posts);
+
+// app.post('/search', function(request, response) {
+//   //var username = req.body;
+
+//   console.log("posted something");
+//   response.end("something2");
+// });
+
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
