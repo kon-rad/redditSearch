@@ -2,18 +2,6 @@ import { Router } from 'express';
 import * as PostController from '../controllers/post.controller';
 const router = new Router();
 
-router.route('/search').post(function(req, res) {
-    console.log(req.body);
-    // form submitted without any search query
-    if (!req.body.search_query) {
-        res.status(403).end();
-    }
-
-    console.log('here found it');
-
-    res.json({ search: 'this is thejson message' });
-});
-
 // Get all Posts
 router.route('/posts').get(PostController.getPosts);
 
