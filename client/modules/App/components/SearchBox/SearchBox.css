@@ -1,0 +1,32 @@
+.search_input {
+    height: 38px;
+    width: 300px;
+    font-size: 20px;
+    border: solid 1px grey;
+    border-radius: 4px;
+    margin: 0 10px;
+    display: block;
+    padding: 0px 12px;
+}
+
+.search_button {
+    margin: 0 10px;
+    height: 37px;
+    size: 20px;
+    font-size: 15px;
+    border: solid 1px black;
+    border-radius: 4px;
+    padding: 0px 2px;
+    width: 58px;
+}
+
+.search_container {
+    width: 100%;
+    display: block;
+}
+
+.search_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

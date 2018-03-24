@@ -14,9 +14,9 @@ require('./main.css');
 export default function App(props) {
   return (
     <Provider store={props.store}>
-        <Router history={browserHistory}>
-          {routes}
-        </Router>
+      <Router history={browserHistory}>
+        {routes}
+      </Router>
     </Provider>
   );
 }
