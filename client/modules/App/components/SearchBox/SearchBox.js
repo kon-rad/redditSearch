@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // Import Style
 import styles from './SearchBox.css';
 
 class SearchBox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isMounted: false };
-  }
-
-  componentDidMount() {
-    this.setState({isMounted: true}); // eslint-disable-line
+  makeSearch = () => {
+    const searchQueryRef = this.refs.searchQuery;
+    if (searchQueryRef.value) {
+      this.props.makeSearch(searchQueryRef);
+      searchQuery.value = '';
+    }
   }
 
   render() {
     return (
       <div className={styles.search_container}>
-        <form id="searchForm" className={styles.search_form} action="/api/search" method="POST">
-          <input className={styles.search_input} placeholder="search all of reddit" name="search_query" type="text" />
-          <input className={styles.search_button} type="submit" value="submit" />
-        </form>
+        <input className={styles.search_input} placeholder="search all of reddit" ref="searchQuery" type="text" />
+        <a className={styles.search_button} href="#" onClick={this.makeSearch}>Submit</a>
       </div>
     );
   }
 }
+
+SearchBox.propTypes = {
+  makeSearch: PropTypes.func.isRequired,
+};
 
 export default SearchBox;

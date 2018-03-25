@@ -11,6 +11,10 @@ import SearchBox from './components/SearchBox/SearchBox';
 
 // Import Actions
 import { toggleAddPost } from './AppActions';
+import { makeSearch } from './AppActions';
+
+// Import Selectors
+import { getResults } from './AppReducer';
 
 export class App extends Component {
   constructor(props) {
@@ -24,6 +28,10 @@ export class App extends Component {
 
   toggleAddPostSection = () => {
     this.props.dispatch(toggleAddPost());
+  };
+
+  handleMakeSearch = (searchQuery) => {
+    this.props.dispatch(makeSearch({ searchQuery }));
   };
 
   render() {
@@ -47,7 +55,10 @@ export class App extends Component {
             ]}
           />
           <h1 className={styles.title}>RedditSearch</h1>
-          <SearchBox name="SearchBox" />
+          <SearchBox 
+            name="SearchBox"
+            makeSearch={this.handleMakeSearch}
+          />
         </div>
       </div>
     );
@@ -64,6 +75,7 @@ App.propTypes = {
 function mapStateToProps(store) {
   return {
     intl: store.intl,
+    data: getResults(store.data),
   };
 }
 
