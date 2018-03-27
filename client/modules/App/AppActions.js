@@ -12,14 +12,27 @@ export function toggleAddPost() {
   };
 }
 
-export function displayResults() {
+export function displayResults(results) {
+  console.log('inside displayresults AppActions.js', results);
+
   return {
     type: DISPLAY_RESULTS,
-  }
+    results,
+  };
 }
 
 export function makeSearch(searchQuery) {
+  console.log('inside appActions.js', searchQuery);
+  // return {
+  //   type: MAKE_SEARCH,
+  // }
   return (dispatch) => {
-    return callRedditApi('searchQuery', 10).then(res => dispatch(displayResults(res.post)));
+
+    return callRedditApi(searchQuery.searchQuery, 10).then(res => {
+      dispatch(displayResults(res));
+    });
   }
+  // return (dispatch) => {
+  //   return callRedditApi('searchQuery', 10).then(res => dispatch(displayResults(res.post)));
+  // }
 }

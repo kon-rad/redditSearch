@@ -36,6 +36,9 @@
     padding: 0px 2px;
     width: 58px;
     font-family: 'Cabin', sans-serif;
+    background: white;
+    padding: 8px 4px;
+    color: black;
 }
 
 .search_container {

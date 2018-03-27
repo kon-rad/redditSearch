@@ -1,11 +1,14 @@
 // Import Actions
 import { TOGGLE_ADD_POST } from './AppActions';
+import { MAKE_SEARCH } from './AppActions';
+import { DISPLAY_RESULTS } from './AppActions';
+
 
 // Initial State
 const initialState = {
   showAddPost: false,
   data: [],
-  makeSearch: 0,
+  searchBoxTest: 0,
 };
 
 const AppReducer = (state = initialState, action) => {
@@ -15,8 +18,16 @@ const AppReducer = (state = initialState, action) => {
         showAddPost: !state.showAddPost,
       };
     case MAKE_SEARCH:
+      console.log('inside AppReducer ');
+
       return {
-        makeSearch: state.makeSearch + 1,
+        searchBoxTest: state.searchBoxTest + 1,
+      };
+    case DISPLAY_RESULTS:
+      console.log('inside displayresults appreducer ', action);
+
+      return {
+        data: action.results,
       };
 
     default:
@@ -24,13 +35,19 @@ const AppReducer = (state = initialState, action) => {
   }
 };
 
+
 /* Selectors */
 
-// Get showAddPost
-export const getShowAddPost = state => state.app.showAddPost;
+/* Selectors */
+
+// Get all posts
+export const getSearchResults = state => state.data;
 
 // Get showAddPost
-export const getResults = state => state.app.data;
+// export const getShowAddPost = state => state.app.showAddPost;
+
+// Get showAddPost
+// export const getResults = state => state.app.data;
 
 // Export Reducer
 export default AppReducer;

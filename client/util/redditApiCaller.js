@@ -1,6 +1,7 @@
 export const REDDIT_API_URL = 'http://www.reddit.com';
 
 export default function callRedditApi(search_query, searchLimit) {
+    console.log('inside callredditapi');
     search_query = encodeURI(search_query);
     searchLimit = encodeURI(searchLimit);
     return fetch(`${REDDIT_API_URL}/search.json?q=${search_query}&limit=${searchLimit}`)

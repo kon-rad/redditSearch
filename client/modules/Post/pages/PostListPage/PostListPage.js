@@ -10,8 +10,8 @@ import { addPostRequest, fetchPosts, deletePostRequest } from '../../PostActions
 import { toggleAddPost } from '../../../App/AppActions';
 
 // Import Selectors
-import { getShowAddPost } from '../../../App/AppReducer';
-import { getPosts } from '../../PostReducer';
+// import { getShowAddPost } from '../../../App/AppReducer';
+// import { getPosts } from '../../PostReducer';
 
 class PostListPage extends Component {
   componentDidMount() {
@@ -45,8 +45,8 @@ PostListPage.need = [() => { return fetchPosts(); }];
 // Retrieve data from store as props
 function mapStateToProps(state) {
   return {
-    showAddPost: getShowAddPost(state),
-    posts: getPosts(state),
+    // showAddPost: getShowAddPost(state),
+    // posts: getPosts(state),
   };
 }
 
