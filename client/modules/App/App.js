@@ -84,13 +84,15 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
   searchItems: PropTypes.arrayOf(PropTypes.shape({
-    thumbnail: PropTypes.string.isRequired,
-    autor: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    subreddit_name_prefixed: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
-    })).isRequired,
+    data: {
+      thumbnail: PropTypes.string.isRequired,
+      autor: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      subreddit_name_prefixed: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      cuid: PropTypes.string.isRequired,
+    }
+  })).isRequired,
 };
 
 // function mapStateToProps(store) {

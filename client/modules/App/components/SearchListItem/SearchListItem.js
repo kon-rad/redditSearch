@@ -20,13 +20,15 @@ function SearchListItem(props) {
 }
 
 SearchListItem.propTypes = {
-    searchItems: PropTypes.arrayOf(PropTypes.shape({
+  searchItems: PropTypes.arrayOf(PropTypes.shape({
+    data: {
       thumbnail: PropTypes.string.isRequired,
       autor: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
       subreddit_name_prefixed: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       cuid: PropTypes.string.isRequired,
+    }
   })).isRequired,
 };
 

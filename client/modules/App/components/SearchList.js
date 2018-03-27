@@ -8,10 +8,13 @@ function SearchList(props) {
     <div className="search_list_view">
       {
         props.searchItems.map(searchItem => (
+          <div>
+            hi heres list
           <SearchListItem
             searchItem={searchItem}
             key={searchItem.cuid}
           />
+          </div>
         ))
       }
     </div>
@@ -20,12 +23,14 @@ function SearchList(props) {
 
 SearchList.propTypes = {
   searchItems: PropTypes.arrayOf(PropTypes.shape({
-    thumbnail: PropTypes.string.isRequired,
-    autor: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    subreddit_name_prefixed: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
+    data: {
+      thumbnail: PropTypes.string.isRequired,
+      autor: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      subreddit_name_prefixed: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      cuid: PropTypes.string.isRequired,
+    }
   })).isRequired,
 };
 
