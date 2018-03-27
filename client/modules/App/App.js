@@ -25,7 +25,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({isMounted: true, searchItems: []}); // eslint-disable-line
+    this.setState({ isMounted: true }); // eslint-disable-line
   }
 
   // toggleAddPostSection = () => {
@@ -37,6 +37,7 @@ export class App extends Component {
   };
 
   render() {
+    console.log('heres App.js. this.props = ', this.props, 'this.state = ', this.state);
     return (
       <div>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
@@ -63,6 +64,7 @@ export class App extends Component {
           />
           <SearchList
             searchItems={this.props.searchItems} 
+            intlYo={this.props.intl}
           />
         </div>
       </div>
@@ -72,10 +74,12 @@ export class App extends Component {
 
 // Retrieve data from store as props
 function mapStateToProps(store) {
+  console.log('heres mapstatetoprops. store: ', store);
   return {
     intl: store.intl,
-    // searchItems: getSearchResults(store),
-    searchItems: [],
+    searchItems: getSearchResults(store),
+    // searchItems: store.app.searchItems,
+    // searchItems: [],
   };
 }
 
@@ -83,7 +87,7 @@ App.propTypes = {
   children: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
-  searchItems: PropTypes.arrayOf(PropTypes.shape({
+  searchItem: PropTypes.arrayOf(PropTypes.shape({
     data: {
       thumbnail: PropTypes.string.isRequired,
       autor: PropTypes.string.isRequired,

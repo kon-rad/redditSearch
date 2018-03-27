@@ -5,22 +5,18 @@ import { Link } from 'react-router';
 import styles from './SearchListItem.css';
 
 function SearchListItem(props) {
+  console.log('heres inside SearchListItem. props: ', props);
   return (
     <div className={styles['search_item']}>
-      <h3 className={styles['search_item--title']}>Search Result Item
-        <Link to={`${props.searchItems.url}`} >
-          {props.searchItems.title}
-        </Link>
-      </h3>
-      <p className={styles['search_item--author']}> {props.searchItems.author}</p>
-      <p className={styles['search_item--content']}>{props.searchItems.subreddit_name_prefixed}</p>
-      <hr className={styles.divider} />
+      <h3 className={styles['search_item--title']}>Search Result Item</h3>
+      <h1>{props.searchItem.data.author}</h1>
+
     </div>
   );
 }
 
 SearchListItem.propTypes = {
-  searchItems: PropTypes.arrayOf(PropTypes.shape({
+  searchItem: PropTypes.arrayOf(PropTypes.shape({
     data: {
       thumbnail: PropTypes.string.isRequired,
       autor: PropTypes.string.isRequired,

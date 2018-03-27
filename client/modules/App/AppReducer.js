@@ -7,7 +7,7 @@ import { DISPLAY_RESULTS } from './AppActions';
 // Initial State
 const initialState = {
   showAddPost: false,
-  searchItems: [],
+  data: [],
   searchBoxTest: 0,
 };
 
@@ -27,7 +27,7 @@ const AppReducer = (state = initialState, action) => {
       console.log('inside displayresults appreducer ', action);
 
       return {
-        searchItems: action.results.data.children,
+        data: action.results.data.children,
       };
 
     default:
@@ -41,8 +41,10 @@ const AppReducer = (state = initialState, action) => {
 /* Selectors */
 
 // Get all posts
-export const getSearchResults = state => state.data;
-
+export const getSearchResults = (state) => {
+  console.log('inside getSearchResults. state = ', state);
+  return state.app.data;
+}
 // Get showAddPost
 // export const getShowAddPost = state => state.app.showAddPost;
 
