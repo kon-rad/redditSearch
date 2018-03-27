@@ -21,11 +21,11 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = { isMounted: false };
-    this.state.searchItems = [];
+    // this.state.searchItems = [];
   }
 
   componentDidMount() {
-    this.setState({isMounted: true}); // eslint-disable-line
+    this.setState({isMounted: true, searchItems: []}); // eslint-disable-line
   }
 
   // toggleAddPostSection = () => {
@@ -74,7 +74,8 @@ export class App extends Component {
 function mapStateToProps(store) {
   return {
     intl: store.intl,
-    searchItems: getSearchResults(store),
+    // searchItems: getSearchResults(store),
+    searchItems: [],
   };
 }
 

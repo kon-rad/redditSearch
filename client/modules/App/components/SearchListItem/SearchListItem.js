@@ -7,7 +7,7 @@ import styles from './SearchListItem.css';
 function SearchListItem(props) {
   return (
     <div className={styles['search_item']}>
-      <h3 className={styles['search_item--title']}>
+      <h3 className={styles['search_item--title']}>Search Result Item
         <Link to={`${props.searchItems.url}`} >
           {props.searchItems.title}
         </Link>
