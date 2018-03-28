@@ -8,8 +8,10 @@ function SearchListItem(props) {
   console.log('heres inside SearchListItem. props: ', props);
   return (
     <div className={styles['search_item']}>
-      <h3 className={styles['search_item--title']}>Search Result Item</h3>
-      <h1>{props.searchItem.data.author}</h1>
+      <h5 className={styles['search_item__title']}>{props.searchItem.data.title}</h5>
+      <span className={styles['search_item__author']}>{props.searchItem.data.author}</span>
+      <p className={styles['search_item__content']}>{props.searchItem.data.selftext}</p>
+      <a className={styles['search_item__link']} href={props.searchItem.data.url}>read more</a>
 
     </div>
   );

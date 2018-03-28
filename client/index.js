@@ -9,6 +9,9 @@ import { configureStore } from './store';
 import Typography from 'typography';
 import doelgerTheme from 'typography-theme-doelger';
 
+// import styles
+import './App.scss';
+
 // Initialize store
 const store = configureStore(window.__INITIAL_STATE__);
 const mountApp = document.getElementById('root');
