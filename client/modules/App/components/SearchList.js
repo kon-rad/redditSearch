@@ -14,7 +14,7 @@ function SearchList(props) {
       <Row>                
         {
           props.searchItems.map(searchItem => (
-              <Col  large={6} largeCentered>
+              <Col  large={10} largeCentered>
                 <Card>
                   <Card.Header>
                     <Row className="rev-Row--flex rev-Row--middle">
@@ -22,14 +22,13 @@ function SearchList(props) {
                         <a className={styles['search_item__link']} href={searchItem.data.url}>{searchItem.data.title}</a>
                       </Col>
                       <Col shrink>
-                        <Button small>Button</Button>
+                      <img src={searchItem.data.thumbnail} className="ResponsiveImage" /> 
                       </Col>
                     </Row>
                   </Card.Header>
                   <Card.Body>
                     <Row>
                       <Col>
-                      <img src={searchItem.data.title} className="ResponsiveImage" /> 
                       </Col>
                     </Row>
                   </Card.Body>
