@@ -4,40 +4,40 @@ import Col from 'awesome-possum/lib/Col';
 import Card from 'awesome-possum/lib/Card';
 import Button from 'awesome-possum/lib/Button';
 
-// Import Components
-import SearchListItem from './SearchListItem/SearchListItem';
+// Import Style
+import styles from './SearchList.css';
 
 function SearchList(props) {
   console.log('heres SearchList. props: ', props);
   return (
-    <div className="search_list_view">
-      {
-        props.searchItems.map(searchItem => (
-          <Row>                
-            <Col large={6}>
-              <Card>
-                <Card.Header>
-                  <Row className="rev-Row--flex rev-Row--middle">
-                    <Col>
-                      <h4>Header</h4>
-                    </Col>
-                    <Col shrink>
-                      <Button small>Button</Button>
-                    </Col>
-                  </Row>
-                </Card.Header>
-                <Card.Body>
-                  <Row>
-                    <Col>
-                    <img src={searchItem.data.title} className="ResponsiveImage" /> 
-                    </Col>
-                  </Row>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        ))
-      }
+    <div  className="searchList_wrapper">
+      <Row>                
+        {
+          props.searchItems.map(searchItem => (
+              <Col  large={6} largeCentered>
+                <Card>
+                  <Card.Header>
+                    <Row className="rev-Row--flex rev-Row--middle">
+                      <Col>
+                        <a className={styles['search_item__link']} href={searchItem.data.url}>{searchItem.data.title}</a>
+                      </Col>
+                      <Col shrink>
+                        <Button small>Button</Button>
+                      </Col>
+                    </Row>
+                  </Card.Header>
+                  <Card.Body>
+                    <Row>
+                      <Col>
+                      <img src={searchItem.data.title} className="ResponsiveImage" /> 
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Card>
+              </Col>
+          ))
+        }
+      </Row>
     </div>
   );
 }

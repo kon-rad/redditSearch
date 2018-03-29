@@ -87,4 +87,9 @@ module.exports = {
       clearMessages: true,
     }),
   ],
+
+
+  node: {
+    fs: "empty"
+ }
 };

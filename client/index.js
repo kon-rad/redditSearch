@@ -6,18 +6,15 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './App';
 import { configureStore } from './store';
-import Typography from 'typography';
-import doelgerTheme from 'typography-theme-doelger';
 
 // import styles
 import './App.scss';
 
+require("../node_modules/awesome-possum/scss/app.scss");
+
 // Initialize store
 const store = configureStore(window.__INITIAL_STATE__);
 const mountApp = document.getElementById('root');
-
-const typography = new Typography(doelgerTheme);
-typography.injectStyles()
 
 render(
   <AppContainer>

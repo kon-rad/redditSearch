@@ -74,7 +74,7 @@ export class App extends Component {
 
 // Retrieve data from store as props
 function mapStateToProps(store) {
-  console.log('heres mapstatetoprops. store: ', store);
+  // console.log('heres mapstatetoprops. store: ', store);
   return {
     intl: store.intl,
     searchItems: getSearchResults(store),

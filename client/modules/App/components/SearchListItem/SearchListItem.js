@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 // Import Style
-import styles from './SearchListItem.css';
+// import styles from './SearchListItem.css';
 
 function SearchListItem(props) {
   console.log('heres inside SearchListItem. props: ', props);
