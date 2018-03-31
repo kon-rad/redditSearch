@@ -1,24 +1,40 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import Row from 'awesome-possum/lib/Row';
+import Col from 'awesome-possum/lib/Col';
+import Card from 'awesome-possum/lib/Card';
+import Button from 'awesome-possum/lib/Button';
 
 // Import Style
-// import styles from './SearchListItem.css';
+import styles from './SearchListItem.css';
 
 function SearchListItem(props) {
-  console.log('heres inside SearchListItem. props: ', props);
   return (
-    <div className={styles['search_item']}>
-      <h5 className={styles['search_item__title']}>{props.searchItem.data.title}</h5>
-      <span className={styles['search_item__author']}>{props.searchItem.data.author}</span>
-      <p className={styles['search_item__content']}>{props.searchItem.data.selftext}</p>
-      <a className={styles['search_item__link']} href={props.searchItem.data.url}>read more</a>
-
-    </div>
+      <Col  large={10} largeCentered>
+        <Card>
+          <Card.Header>
+            <Row className="rev-Row--flex rev-Row--middle">
+              <Col>
+                <a className={styles['search_item__link']} href={props.searchItem.data.url}>{props.searchItem.data.title}</a>
+              </Col>
+              <Col shrink>
+              <img src={props.searchItem.data.thumbnail.includes('https://') ? props.searchItem.data.thumbnail : require('../../../../assets/reddit_thumbnail.png')} className={styles['search_item__thumbnail']} /> 
+              </Col>
+            </Row>
+          </Card.Header>
+          <Card.Body>
+            <Row>
+              <Col>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Col>
   );
 }
 
 SearchListItem.propTypes = {
-  searchItem: PropTypes.arrayOf(PropTypes.shape({
+  searchItem: PropTypes.shape(PropTypes.shape({
     data: {
       thumbnail: PropTypes.string.isRequired,
       autor: PropTypes.string.isRequired,

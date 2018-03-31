@@ -1,0 +1,25 @@
+.search_item {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 2px;
+  }
+  
+  .search_item--title{
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 400;
+    color: #616161;
+  }
+  
+  .divider{
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    width: 250px;
+    margin: 32px auto 0;
+  }
+
+  .search_item__thumbnail {
+      max-width: 140px;
+      max-height: 140px;
+  }
