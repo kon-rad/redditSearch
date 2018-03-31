@@ -1,25 +1,72 @@
 .search_item {
-    margin: 20px 0;
-    padding: 15px;
-    border-radius: 2px;
-  }
-  
-  .search_item--title{
+    margin-top: 20px;
+}
+
+.search_item--title{
     font-size: 28px;
     margin-bottom: 16px;
     font-weight: 400;
     color: #616161;
-  }
-  
-  .divider{
+}
+
+.divider{
     border: 0;
     height: 1px;
     background: #ccc;
     width: 250px;
     margin: 32px auto 0;
-  }
+}
 
-  .search_item__thumbnail {
-      max-width: 140px;
-      max-height: 140px;
-  }
+.search_item__thumbnail {
+    max-width: 140px;
+    max-height: 140px;
+    margin: 0 0!important;
+}
+
+.search_item__footer {
+    min-height: 30px;
+}
+
+.search_item__header {
+    height: 153px !important;
+    margin: 0;
+    min-height: 153px;
+}
+
+.search_item__toggle {
+    margin: 4px 0 4px 6px;
+    color: #a0a0a0;
+}
+
+.search_item__toggle:hover {
+    color: #343143;
+    cursor: pointer;
+}
+
+.search_item__link {
+    font-size:18px;
+    color: #343143;
+    font-family: Lato;
+    height: 153px;
+    display: inline-block;
+    padding: 20px 6px 0;
+}
+.search_item__link:hover {
+    color: #2793EA;
+}
+
+.search_item__comments {
+    color: red;
+    display: inline-block;
+    margin: 4px 0 4px 16px;
+}
+
+.search_item__comments:hover {
+    cursor: pointer;
+}
+
+.search_item__detail {
+    height: 46px;
+    display: flex;
+    align-items: center;
+}
