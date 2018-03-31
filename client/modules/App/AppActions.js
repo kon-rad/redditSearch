@@ -7,13 +7,13 @@ export const MAKE_SEARCH = 'MAKE_SEARCH';
 
 // Export Actions
 export function toggleAddPost() {
+  
   return {
     type: TOGGLE_ADD_POST,
   };
 }
 
 export function displayResults(results) {
-  console.log('inside displayresults AppActions.js', results);
 
   return {
     type: DISPLAY_RESULTS,
@@ -22,17 +22,10 @@ export function displayResults(results) {
 }
 
 export function makeSearch(searchQuery) {
-  console.log('inside appActions.js', searchQuery);
-  // return {
-  //   type: MAKE_SEARCH,
-  // }
-  return (dispatch) => {
 
+  return (dispatch) => {
     return callRedditApi(searchQuery.searchQuery, 10).then(res => {
       dispatch(displayResults(res));
     });
   }
-  // return (dispatch) => {
-  //   return callRedditApi('searchQuery', 10).then(res => dispatch(displayResults(res.post)));
-  // }
 }

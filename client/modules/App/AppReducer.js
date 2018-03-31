@@ -3,7 +3,6 @@ import { TOGGLE_ADD_POST } from './AppActions';
 import { MAKE_SEARCH } from './AppActions';
 import { DISPLAY_RESULTS } from './AppActions';
 
-
 // Initial State
 const initialState = {
   showAddPost: false,
@@ -18,13 +17,11 @@ const AppReducer = (state = initialState, action) => {
         showAddPost: !state.showAddPost,
       };
     case MAKE_SEARCH:
-      console.log('inside AppReducer ');
 
       return {
         searchBoxTest: state.searchBoxTest + 1,
       };
     case DISPLAY_RESULTS:
-      console.log('inside displayresults appreducer ', action);
 
       return {
         data: action.results.data.children,
@@ -35,9 +32,6 @@ const AppReducer = (state = initialState, action) => {
   }
 };
 
-
-/* Selectors */
-
 /* Selectors */
 
 // Get all posts
@@ -45,11 +39,6 @@ export const getSearchResults = (state) => {
   console.log('inside getSearchResults. state = ', state);
   return state.app.data;
 }
-// Get showAddPost
-// export const getShowAddPost = state => state.app.showAddPost;
-
-// Get showAddPost
-// export const getResults = state => state.app.data;
 
 // Export Reducer
 export default AppReducer;

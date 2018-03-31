@@ -21,16 +21,11 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = { isMounted: false };
-    // this.state.searchItems = [];
   }
 
   componentDidMount() {
     this.setState({ isMounted: true }); // eslint-disable-line
   }
-
-  // toggleAddPostSection = () => {
-  //   this.props.dispatch(toggleAddPost());
-  // };
 
   handleMakeSearch = (searchQuery) => {
     this.props.dispatch(makeSearch({ searchQuery }));
@@ -74,12 +69,9 @@ export class App extends Component {
 
 // Retrieve data from store as props
 function mapStateToProps(store) {
-  // console.log('heres mapstatetoprops. store: ', store);
   return {
     intl: store.intl,
     searchItems: getSearchResults(store),
-    // searchItems: store.app.searchItems,
-    // searchItems: [],
   };
 }
 
@@ -98,20 +90,6 @@ App.propTypes = {
     }
   })).isRequired,
 };
-
-// function mapStateToProps(store) {
-//   return {
-//     intl: store.intl,
-  // searchItems: PropTypes.arrayOf(PropTypes.shape({
-  //   thumbnail: PropTypes.string.isRequired,
-  //   autor: PropTypes.string.isRequired,
-  //   url: PropTypes.string.isRequired,
-  //   subreddit_name_prefixed: PropTypes.string.isRequired,
-  //   title: PropTypes.string.isRequired,
-  //   cuid: PropTypes.string.isRequired,
-//     })).isRequired,
-//   };
-// }
 
 App.contextTypes = {
   router: React.PropTypes.object,

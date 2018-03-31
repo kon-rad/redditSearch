@@ -21,13 +21,10 @@ import GoOrganization from 'react-icons/lib/go/organization';
 
 // Import Style
 import styles from './SearchListItem.css';
-require('./SearchListItemStyles.scss');
+
 class SearchListItem extends Component {
   constructor(props) {
     super(props);
-    console.log('inside constructor. props: ', props);
-    // this.state = { isMounted: false };
-    // this.state.searchItems = [];
   }
   static defaultHeight = '184px';
 
@@ -36,21 +33,18 @@ class SearchListItem extends Component {
   };
 
   expand = () => {
-    console.log('expand here state: ', this.state);
     this.setState({height: null})
   };
 
   contract = () => {
-    console.log('contract here state: ', this.state);
-    
     this.setState({height: this.constructor.defaultHeight})
   };
 
   getDateFormat = (date) => {
-    console.log(date);
     let t = new Date(date * 1000);
     return t.toLocaleDateString();
   }
+  
   render() {
     return (
       <CardLayout
