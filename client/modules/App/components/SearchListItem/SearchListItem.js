@@ -9,7 +9,15 @@ import HelpText from 'awesome-possum/lib/HelpText';
 import Lipsum from 'awesome-possum/lib/Lipsum';
 import ExpandingCol from 'awesome-possum/lib/ExpandingCol';
 import NumberFormatter from 'awesome-possum/lib/NumberFormatter';
-
+import FaChain from 'react-icons/lib/fa/chain';
+import FaAngleDown from 'react-icons/lib/fa/angle-down';
+import FaAngleUp from 'react-icons/lib/fa/angle-up';
+import FaCalendar from 'react-icons/lib/fa/calendar';
+import FaComments from 'react-icons/lib/fa/comments';
+import FaUser from 'react-icons/lib/fa/user';
+import FaArrowUp from 'react-icons/lib/fa/arrow-up';
+import FaReddit from 'react-icons/lib/fa/reddit';
+import GoOrganization from 'react-icons/lib/go/organization';
 
 // Import Style
 import styles from './SearchListItem.css';
@@ -64,30 +72,43 @@ class SearchListItem extends Component {
         <CardLayout.Fill  className={styles['search_item__detail']}>
           <Row flex left>
             <Col small={4}>
-              Created: {this.getDateFormat(this.props.searchItem.data.created)}<br/>
-              Author: {this.props.searchItem.data.author}<br/>
+              <FaCalendar/>
+              <span className={styles['search_item__detail_item']}>
+              Created: {this.getDateFormat(this.props.searchItem.data.created)}</span><br/>
+              <FaUser/>
+              <span className={styles['search_item__detail_item']}>
+              Author: {this.props.searchItem.data.author}</span><br/>
             </Col>
             <Col small={4}>
-              Comments: <NumberFormatter value={this.props.searchItem.data.num_comments} /><br/>
-              Upvotes: <NumberFormatter value={this.props.searchItem.data.score} /><br/>
+              <FaComments/>  
+              <span className={styles['search_item__detail_item']}>          
+              Comments: <NumberFormatter value={this.props.searchItem.data.num_comments} /></span><br/>
+              <FaArrowUp/>
+              <span className={styles['search_item__detail_item']}>
+              Upvotes: <NumberFormatter value={this.props.searchItem.data.score} /></span><br/>
             </Col>
             <Col small={4}>
-              Subreddit: {this.props.searchItem.data.subreddit_name_prefixed}<br/>
-              Subreddit Subscribers: <NumberFormatter value={this.props.searchItem.data.subreddit_subscribers} /><br/>
+              <FaReddit/>
+              <span className={styles['search_item__detail_item']}>
+              Subreddit: {this.props.searchItem.data.subreddit_name_prefixed}</span><br/>
+              <GoOrganization/>
+              <span className={styles['search_item__detail_item']}>
+              Subreddit Subscribers: <NumberFormatter value={this.props.searchItem.data.subreddit_subscribers} /></span><br/>
             </Col>
           </Row>
         </CardLayout.Fill>
         <Card.Footer className={styles['search_item__footer']} >
-          <Row>
-            <Col>
+          <Row flex>
+            <Col small={6}>
               <a style={{
-                display: this.state.height ? 'inline-block' : 'none',
-              }} className={styles['search_item__toggle']} onClick={this.expand}>Expand</a>
+                display: this.state.height ? 'block' : 'none',
+              }} className={styles['search_item__toggle']} onClick={this.expand}><FaAngleDown/><span className={styles['search_item__detail_item']}>Expand</span></a>
               <a style={{
-                display: this.state.height ? 'none' : 'inline-block',
-              }} className={styles['search_item__toggle']} onClick={this.contract}>Contract</a>
-              <a target="_blank" className={styles['search_item__comments']} href={`https://reddit.com${this.props.searchItem.data.permalink}`}>Comments</a>
-              
+                display: this.state.height ? 'none' : 'block',
+              }} className={styles['search_item__toggle']} onClick={this.contract}><FaAngleUp/><span className={styles['search_item__detail_item']}>Contract</span></a>
+            </Col>
+            <Col small={6}>
+              <a target="_blank" className={styles['search_item__comments']} href={`https://reddit.com${this.props.searchItem.data.permalink}`}><FaChain /><span className={styles['search_item__detail_item']}>Comments</span></a>
             </Col>
           </Row>
         </Card.Footer>

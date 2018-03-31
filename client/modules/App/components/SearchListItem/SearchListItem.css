@@ -34,8 +34,10 @@
 }
 
 .search_item__toggle {
-    margin: 4px 0 4px 6px;
+    margin: 4px 12px 4px 6px;
     color: #a0a0a0;
+    display: block;
+    text-align: center;
 }
 
 .search_item__toggle:hover {
@@ -57,8 +59,9 @@
 
 .search_item__comments {
     color: red;
-    display: inline-block;
-    margin: 4px 0 4px 16px;
+    display: block;
+    margin: 4px 12px 4px 4px;
+    text-align: center;
 }
 
 .search_item__comments:hover {
@@ -66,7 +69,12 @@
 }
 
 .search_item__detail {
-    height: 46px;
+    height: 48px;
+    font-size: 12px;
     display: flex;
     align-items: center;
+}
+
+.search_item__detail_item {
+    margin-left: 4px;
 }
