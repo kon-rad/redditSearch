@@ -8,7 +8,7 @@ function SearchList(props) {
       <Row>                
         {
           props.searchItems.map(searchItem => (
-            <SearchListItem searchItem={searchItem} />
+            <SearchListItem key={searchItem.data.id} searchItem={searchItem} />
           ))
         }
       </Row>
@@ -17,15 +17,7 @@ function SearchList(props) {
 }
 
 SearchList.propTypes = {
-  searchItem: PropTypes.arrayOf(PropTypes.shape({
-    data: {
-      thumbnail: PropTypes.string.isRequired,
-      autor: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      subreddit_name_prefixed: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    }
-  })).isRequired,
+  searchItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default SearchList;

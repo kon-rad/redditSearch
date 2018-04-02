@@ -36,7 +36,6 @@ const AppReducer = (state = initialState, action) => {
 
 // Get all posts
 export const getSearchResults = (state) => {
-  console.log('inside getSearchResults. state = ', state);
   return state.app.data;
 }
 

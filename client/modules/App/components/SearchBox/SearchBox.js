@@ -13,7 +13,6 @@ class SearchBox extends Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -38,7 +37,7 @@ class SearchBox extends Component {
             <Col large={8}>
               <InputGroup>
                 <InputGroup.Field>
-                  <Input className={styles.search_input} placeholder="search all of reddit" type="text" value={this.state.value} onChange={this.handleChange} />
+                  <Input className={styles.search_input} placeholder="search ..." type="text" value={this.state.value} onChange={this.handleChange} />
                 </InputGroup.Field> 
                 <InputGroup.Button>         
                   <Button type="submit">Submit</Button>

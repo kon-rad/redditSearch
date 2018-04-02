@@ -44,7 +44,7 @@ class SearchListItem extends Component {
     let t = new Date(date * 1000);
     return t.toLocaleDateString();
   }
-  
+
   render() {
     return (
       <CardLayout
@@ -52,6 +52,7 @@ class SearchListItem extends Component {
         style={{
           height: this.state ? this.state.height : null,
         }}
+        key={this.props.searchItem.data.id}
       >
         <Card.Header className={styles['search_item__header']}>
           <Row flex className="rev-Row--flex rev-Row--middle search_item__header_inner">
@@ -64,7 +65,7 @@ class SearchListItem extends Component {
           </Row>
         </Card.Header>
         <CardLayout.Fill  className={styles['search_item__detail']}>
-          <Row flex left>
+          <Row flex>
             <Col small={4}>
               <FaCalendar/>
               <span className={styles['search_item__detail_item']}>
@@ -87,7 +88,7 @@ class SearchListItem extends Component {
               Subreddit: {this.props.searchItem.data.subreddit_name_prefixed}</span><br/>
               <GoOrganization/>
               <span className={styles['search_item__detail_item']}>
-              Subreddit Subscribers: <NumberFormatter value={this.props.searchItem.data.subreddit_subscribers} /></span><br/>
+              Subscribers: <NumberFormatter value={this.props.searchItem.data.subreddit_subscribers} /></span><br/>
             </Col>
           </Row>
         </CardLayout.Fill>
@@ -113,16 +114,7 @@ class SearchListItem extends Component {
 }
 
 SearchListItem.propTypes = {
-  searchItem: PropTypes.shape(PropTypes.shape({
-    data: {
-      thumbnail: PropTypes.string.isRequired,
-      autor: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      subreddit_name_prefixed: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      cuid: PropTypes.string.isRequired,
-    }
-  })).isRequired,
+  searchItem: PropTypes.object,
 };
 
 export default SearchListItem;

@@ -52,6 +52,7 @@
     height: 153px;
     display: inline-block;
     padding: 20px 6px 0;
+    overflow: auto;
 }
 .search_item__link:hover {
     color: #2793EA;
@@ -73,8 +74,28 @@
     font-size: 12px;
     display: flex;
     align-items: center;
+    text-align: center;
 }
 
 .search_item__detail_item {
     margin-left: 4px;
+}
+
+@media (max-width: 760px) {
+    .search_item__link {
+        padding: 4px 0px;
+        font-size: 13px;
+    }
+    .search_item__thumbnail {
+        max-width: 60px;
+        max-height: 60px;
+    }
+    .search_item__detail {
+        margin-left: 2px;
+        font-size: 10px;
+    }
+    .search_item__detail {
+        height: 60px;
+        font-size: 10px;
+    }
 }

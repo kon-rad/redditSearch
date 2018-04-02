@@ -32,7 +32,6 @@ export class App extends Component {
   };
 
   render() {
-    console.log('heres App.js. this.props = ', this.props, 'this.state = ', this.state);
     return (
       <div>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
@@ -76,19 +75,7 @@ function mapStateToProps(store) {
 }
 
 App.propTypes = {
-  children: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  intl: PropTypes.object.isRequired,
-  searchItem: PropTypes.arrayOf(PropTypes.shape({
-    data: {
-      thumbnail: PropTypes.string.isRequired,
-      autor: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      subreddit_name_prefixed: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      cuid: PropTypes.string.isRequired,
-    }
-  })).isRequired,
+  searchItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 App.contextTypes = {
