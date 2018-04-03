@@ -5,27 +5,26 @@ import Button from 'awesome-possum/lib/Button';
 import Row from 'awesome-possum/lib/Row';
 import Col from 'awesome-possum/lib/Col';
 
-
 // Import Style
 import styles from './SearchBox.css';
 
 class SearchBox extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = { value: ''} ;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState( {value: event.target.value} );
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.value.trim()) {
       this.props.makeSearch(this.state.value);
-      this.setState({value: ''});
+      this.setState({ value: '' });
     }
   }
 
@@ -38,10 +37,10 @@ class SearchBox extends Component {
               <InputGroup>
                 <InputGroup.Field>
                   <Input className={styles.search_input} placeholder="search ..." type="text" value={this.state.value} onChange={this.handleChange} />
-                </InputGroup.Field> 
-                <InputGroup.Button>         
+                </InputGroup.Field>
+                <InputGroup.Button>
                   <Button type="submit">Submit</Button>
-                </InputGroup.Button>                   
+                </InputGroup.Button>
               </InputGroup>
             </Col>
           </Row>

@@ -43,7 +43,7 @@ class PostListPage extends Component {
 PostListPage.need = [() => { return fetchPosts(); }];
 
 // Retrieve data from store as props
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {
     // showAddPost: getShowAddPost(state),
     // posts: getPosts(state),

@@ -1,7 +1,5 @@
 // Import Actions
-import { TOGGLE_ADD_POST } from './AppActions';
-import { MAKE_SEARCH } from './AppActions';
-import { DISPLAY_RESULTS } from './AppActions';
+import { TOGGLE_ADD_POST, MAKE_SEARCH, DISPLAY_RESULTS } from './AppActions';
 
 // Initial State
 const initialState = {
@@ -37,7 +35,7 @@ const AppReducer = (state = initialState, action) => {
 // Get all posts
 export const getSearchResults = (state) => {
   return state.app.data;
-}
+};
 
 // Export Reducer
 export default AppReducer;

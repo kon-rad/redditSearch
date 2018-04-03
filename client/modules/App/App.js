@@ -10,7 +10,6 @@ import DevTools from './components/DevTools';
 import SearchBox from './components/SearchBox/SearchBox';
 
 // Import Actions
-import { toggleAddPost } from './AppActions';
 import { makeSearch } from './AppActions';
 import SearchList from './components/SearchList';
 
@@ -76,6 +75,7 @@ function mapStateToProps(store) {
 
 App.propTypes = {
   searchItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  dispatch: PropTypes.func,
 };
 
 App.contextTypes = {

@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import Row from 'awesome-possum/lib/Row';
-import SearchListItem from './SearchListItem/SearchListItem'
+import SearchListItem from './SearchListItem/SearchListItem';
 
 function SearchList(props) {
   return (
-    <div  className="searchList_wrapper">
-      <Row>                
+    <div className="searchList_wrapper">
+      <Row>
         {
           props.searchItems.map(searchItem => (
             <SearchListItem key={searchItem.data.id} searchItem={searchItem} />
