@@ -19,16 +19,9 @@ import styles from './SearchListItem.css';
 
 class SearchListItem extends Component {
   static defaultHeight = '184px';
-  constructor(props) {
-    super(props);
-  };
 
   state = {
     height: this.constructor.defaultHeight,
-  };
-
-  contract = () => {
-    this.setState({ height: this.constructor.defaultHeight })
   };
 
   getDateFormat = (date) => {
@@ -36,8 +29,12 @@ class SearchListItem extends Component {
     return t.toLocaleDateString();
   };
 
+  contract = () => {
+    this.setState({ height: this.constructor.defaultHeight });
+  };
+
   expand = () => {
-    this.setState({ height: null })
+    this.setState({ height: null });
   };
 
   render() {
@@ -55,9 +52,10 @@ class SearchListItem extends Component {
               <a target="_blank" className={styles.search_item__link} href={this.props.searchItem.data.url}>{this.props.searchItem.data.title}</a>
             </Col>
             <Col shrink>
-              <img 
-                src={this.props.searchItem.data.thumbnail.includes('https://') ? this.props.searchItem.data.thumbnail : require('../../../../assets/reddit_thumbnail.png')} 
-                className={styles.search_item__thumbnail} 
+              <img
+                src={this.props.searchItem.data.thumbnail.includes('https://') ? this.props.searchItem.data.thumbnail : require('../../../../assets/reddit_thumbnail.png')}//eslint-disable-line
+                className={styles.search_item__thumbnail}
+                alt="thumbnail"
               />
             </Col>
           </Row>
@@ -65,52 +63,52 @@ class SearchListItem extends Component {
         <CardLayout.Fill className={styles.search_item__detail}>
           <Row flex>
             <Col small={4}>
-              <FaCalendar/>
+              <FaCalendar />
               <span className={styles.search_item__detail_item}>
                 Created: {this.getDateFormat(this.props.searchItem.data.created)}
-              </span><br/>
-              <FaUser/>
+              </span><br />
+              <FaUser />
               <span className={styles.search_item__detail_item}>
                 Author: {this.props.searchItem.data.author}
-              </span><br/>
+              </span><br />
             </Col>
             <Col small={4}>
-              <FaComments/>  
-              <span className={styles.search_item__detail_item}>          
+              <FaComments />
+              <span className={styles.search_item__detail_item}>
                 Comments: <NumberFormatter value={this.props.searchItem.data.num_comments} />
-              </span><br/>
-              <FaArrowUp/>
+              </span><br />
+              <FaArrowUp />
               <span className={styles.search_item__detail_item}>
                 Upvotes: <NumberFormatter value={this.props.searchItem.data.score} />
-              </span><br/>
+              </span><br />
             </Col>
             <Col small={4}>
-              <FaReddit/>
+              <FaReddit />
               <span className={styles.search_item__detail_item}>
                 Subreddit: {this.props.searchItem.data.subreddit_name_prefixed}
-              </span><br/>
-              <GoOrganization/>
+              </span><br />
+              <GoOrganization />
               <span className={styles.search_item__detail_item}>
                 Subscribers: <NumberFormatter value={this.props.searchItem.data.subreddit_subscribers} />
-              </span><br/>
+              </span><br />
             </Col>
           </Row>
         </CardLayout.Fill>
         <Card.Footer className={styles.search_item__footer} >
           <Row flex>
             <Col small={6}>
-              <a 
-                style={{ display: this.state.height ? 'block' : 'none', }} 
+              <a
+                style={{ display: this.state.height ? 'block' : 'none' }}
                 className={styles.search_item__toggle} onClick={this.expand}
               >
-                <FaAngleDown/>
+                <FaAngleDown />
                 <span className={styles.search_item__detail_item}>Expand</span>
               </a>
               <a
-                style={{ display: this.state.height ? 'none' : 'block', }}
+                style={{ display: this.state.height ? 'none' : 'block' }}
                 className={styles.search_item__toggle} onClick={this.contract}
               >
-                <FaAngleUp/>
+                <FaAngleUp />
                 <span className={styles.search_item__detail_item}>Contract</span>
               </a>
             </Col>

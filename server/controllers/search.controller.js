@@ -19,7 +19,7 @@
 
 //     data.then(results => {
 //             results.forEach(post => {
-//                 console.log('data resolved!!!***', post); 
+//                 console.log('data resolved!!!***', post);
 //             })
 //         }
 //     )

@@ -17,7 +17,8 @@
     "lint": "eslint client server"
   },
   "pre-commit": [
-
+    "lint",
+    "test"
   ],
   "repository": {
     "type": "git",

@@ -51,12 +51,12 @@ export class App extends Component {
             ]}
           />
           <h1 className={styles.title}>RedditSearch</h1>
-          <SearchBox 
+          <SearchBox
             name="SearchBox"
             makeSearch={this.handleMakeSearch}
           />
           <SearchList
-            searchItems={this.props.searchItems} 
+            searchItems={this.props.searchItems}
             intlYo={this.props.intl}
           />
         </div>
@@ -76,6 +76,7 @@ function mapStateToProps(store) {
 App.propTypes = {
   searchItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   dispatch: PropTypes.func,
+  intl: PropTypes.object,
 };
 
 App.contextTypes = {
