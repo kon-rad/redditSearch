@@ -1,4 +1,4 @@
-export const REDDIT_API_URL = 'http://www.reddit.com';
+export const REDDIT_API_URL = 'https://www.reddit.com';
 
 export default function callRedditApi(searchQuery, searchLimit) {
   const searchQueryEncoded = encodeURI(searchQuery);
