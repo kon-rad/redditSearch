@@ -18,7 +18,6 @@
     "ava": "ava --verbose"
   },
   "pre-commit": [
-    "lint"
   ],
   "repository": {
     "type": "git",
