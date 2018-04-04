@@ -1,5 +1,12 @@
 import test from 'ava';
 import { actionTest } from 'redux-ava';
-import { TOGGLE_ADD_POST, toggleAddPost } from '../AppActions';
+import {
+  DISPLAY_RESULTS,
+  displayResults,
+} from '../AppActions';
 
-test('should return the correct type for toggleAddPost', actionTest(toggleAddPost, null, { type: TOGGLE_ADD_POST }));
+test('should return the correct type for displayResults', actionTest(
+  displayResults,
+  { results: 'results' },
+  { type: DISPLAY_RESULTS, results: { results: 'results' }
+}));

@@ -8,5 +8,5 @@ test('renders the SearchBox properly', t => {
     <SearchBox />
   );
 
-  t.is(wrapper.find('input').length, 2);
+  t.is(wrapper.find('form').length, 1);
 });
