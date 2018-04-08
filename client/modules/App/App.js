@@ -56,7 +56,7 @@ export class App extends Component {
             makeSearch={this.handleMakeSearch}
           />
           <SearchList
-            searchItems={this.props.searchItems}
+            searchItems={this.props.app}
             intl={this.props.intl}
           />
         </div>
@@ -67,16 +67,15 @@ export class App extends Component {
 
 // Retrieve data from store as props
 function mapStateToProps(store) {
+  console.log('store : ', store);
   return {
     intl: store.intl,
-    searchItems: getSearchResults(store) ? getSearchResults(store) : [],
+    app: getSearchResults(store) ? getSearchResults(store) : [],
   };
 }
 
-
-
 App.propTypes = {
-  searchItems: PropTypes.arrayOf(PropTypes.shape({})),
+  app: PropTypes.arrayOf(PropTypes.shape({})),
   dispatch: PropTypes.func,
   intl: PropTypes.object,
 };

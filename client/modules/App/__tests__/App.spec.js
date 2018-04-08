@@ -2,17 +2,17 @@ import React from 'react';
 import test from 'ava';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
-// import { shallow, mount } from 'enzyme';
 import { App } from '../App';
 import { intlShape } from 'react-intl';
 import styles from '../App.css';
 import { intl } from '../../../util/react-intl-test-helper';
+import { makeSearch } from '../AppActions';
 
 const intlProp = { ...intl, enabledLanguages: ['en', 'fr'] };
-const children = <h1>Test</h1>;
+const app = [];
 const dispatch = sinon.spy();
 const props = {
-  children,
+  app,
   dispatch,
   intl: intlProp,
 };
@@ -27,7 +27,7 @@ test('renders properly', t => {
   t.is(wrapper.find('SearchBox').length, 1);
   t.is(wrapper.find('SearchList').length, 1);
   t.is(wrapper.find('SearchBox').prop('makeSearch'), wrapper.instance().handleMakeSearch);
-  t.is(wrapper.find('SearchList').prop('searchItems'), wrapper.instance().props.searchItems);
+  t.is(wrapper.find('SearchList').prop('searchItems'), wrapper.instance().props.app);
 
   t.truthy(wrapper.find('h1').hasClass(styles.title));
 });
@@ -49,10 +49,12 @@ test('calls componentDidMount', t => {
           createHref: sinon.stub(),
         },
         intl,
+        app: [],
       },
       childContextTypes: {
         router: React.PropTypes.object,
         intl: intlShape,
+        app: React.PropTypes.array
       },
     },
   );
@@ -61,12 +63,12 @@ test('calls componentDidMount', t => {
   App.prototype.componentDidMount.restore();
 });
 
-// test('calling toggleAddPostSection dispatches toggleAddPost', t => {
-//   const wrapper = shallow(
-//     <App {...props} />
-//   );
+test('calling handleMakeSearch dispatches makeSearch', t => {
+  const wrapper = shallow(
+    <App {...props} />
+  );
 
-//   wrapper.instance().toggleAddPostSection();
-//   t.truthy(dispatch.calledOnce);
-//   t.truthy(dispatch.calledWith(toggleAddPost()));
-// });
+  wrapper.instance().handleMakeSearch({ searchQuery: 'test search query' });
+  t.truthy(dispatch.calledOnce);
+  t.truthy(dispatch.calledWith(makeSearch({ searchQuery: 'test search query' })));
+});

@@ -38,6 +38,9 @@ class SearchListItem extends Component {
   };
 
   render() {
+    /*
+    console.log(this.props) returns {searchItem: {…}}
+    */
     return (
       <CardLayout
         className={styles.search_item}
