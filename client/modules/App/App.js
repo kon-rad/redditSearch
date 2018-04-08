@@ -22,6 +22,7 @@ export class App extends Component {
     this.state = { isMounted: false };
   }
 
+
   componentDidMount() {
     this.setState({ isMounted: true }); // eslint-disable-line
   }
@@ -52,12 +53,11 @@ export class App extends Component {
           />
           <h1 className={styles.title}>RedditSearch</h1>
           <SearchBox
-            name="SearchBox"
             makeSearch={this.handleMakeSearch}
           />
           <SearchList
             searchItems={this.props.searchItems}
-            intlYo={this.props.intl}
+            intl={this.props.intl}
           />
         </div>
       </div>
@@ -69,12 +69,14 @@ export class App extends Component {
 function mapStateToProps(store) {
   return {
     intl: store.intl,
-    searchItems: getSearchResults(store),
+    searchItems: getSearchResults(store) ? getSearchResults(store) : [],
   };
 }
 
+
+
 App.propTypes = {
-  searchItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  searchItems: PropTypes.arrayOf(PropTypes.shape({})),
   dispatch: PropTypes.func,
   intl: PropTypes.object,
 };

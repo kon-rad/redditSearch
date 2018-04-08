@@ -17,7 +17,7 @@ function SearchList(props) {
 }
 
 SearchList.propTypes = {
-  searchItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  searchItems: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 export default SearchList;
