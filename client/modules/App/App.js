@@ -28,7 +28,7 @@ export class App extends Component {
   }
 
   handleMakeSearch = (searchQuery) => {
-    this.props.dispatch(makeSearch({ searchQuery }));
+    this.props.dispatch(searchQuery);
   };
 
   render() {

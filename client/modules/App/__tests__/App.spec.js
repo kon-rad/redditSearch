@@ -64,11 +64,17 @@ test('calls componentDidMount', t => {
 });
 
 test('calling handleMakeSearch dispatches makeSearch', t => {
+  const dispatch = sinon.spy();
+  const props = {
+    app,
+    dispatch,
+    intl: intlProp,
+  };
   const wrapper = shallow(
     <App {...props} />
   );
 
-  wrapper.instance().handleMakeSearch({ searchQuery: 'test search query' });
+  wrapper.instance().handleMakeSearch('search text');
   t.truthy(dispatch.calledOnce);
-  // t.truthy(dispatch.calledWith(makeSearch({ searchQuery: 'test search query' })));
+  t.truthy(dispatch.calledWith('search text'));
 });
